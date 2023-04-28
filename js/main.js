@@ -21,7 +21,6 @@ var time = setInterval(function() {
     else {
         document.getElementById("time").innerHTML = (date.getFullYear() + " " + monthNames[date.getMonth()] + " " + date.getHours() + ":" + "0" + minuts);
     }
-    console.log(minuts);
 }, 1000);
 
 
@@ -37,12 +36,12 @@ var weather_time = setInterval(function() {
 
 
 
-    var images_day  = ['cloudy.png', 'cloud.png', 'sun.png', 'rainy.png', 'snowfall.png', 'lowsnowfall.png', 'rain.png'];
+var images_day  = ['cloudy.png', 'cloud.png', 'sun.png', 'rainy.png', 'snowfall.png', 'lowsnowfall.png', 'rain.png'];
 
-    var images_night = ['night_cloud.png' ,'night_cloudy.png', 'night.png', 'night_rainy.png', 'night_snowfall.png', 'night_lowsnowfall.png'];
+var images_night = ['night_cloud.png' ,'night_cloudy.png', 'night.png', 'night_rainy.png', 'night_snowfall.png', 'night_lowsnowfall.png'];
 
 //day
-if (hours < 20 && hours > 5) {
+if (hours <= 20 || hours >= 5) {
 
     //summer
     if (monthNames[date.getMonth()] != 0, 1, 2, 9, 10, 11) {
@@ -119,9 +118,9 @@ if (hours < 20 && hours > 5) {
         };
     };
 
-}  
+}
 //night 
-if (hours >= 20 && hours <= 5) {
+if (hours >= 20 || hours <= 5) {
         
     //summer
     if (monthNames[date.getMonth()] != 0, 1, 2, 9, 10, 11) {
@@ -132,7 +131,7 @@ if (hours >= 20 && hours <= 5) {
             if(cloudcover == i && precipitation == 0) {
                 document.getElementById('img').src = '../images/night_icons/' + images_night[1];
             }
-            if(cloudcover <= 64 && cloudcover >= 25 && precipitation == 0) {
+            if(cloudcover >= 25 && cloudcover <= 64 && precipitation == 0) {
                 document.getElementById('img').src = '../images/night_icons/' + images_night[0];
             }
             if(cloudcover <= 25 && precipitation == 0) {
@@ -196,5 +195,4 @@ if (hours >= 20 && hours <= 5) {
             }
         };
     };
-};
-}, 1000);
+}}, 1000);
