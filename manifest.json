@@ -2,7 +2,7 @@
     "version": "1.2",
     "api_version": 3,
     "layout": {
-        "logo": "https://site/img/weather-app.code.png",
+        "logo": "https://weatherapp-mauve-chi.vercel.app/images/weather-app.png",
         "color": "#2099df"
     }
 }
