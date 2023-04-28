@@ -1,4 +1,6 @@
+const date = new Date();
 const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+const months = monthNames[date.getMonth()];
 
 function Get(yourUrl){
     var Httpreq = new XMLHttpRequest();
@@ -32,10 +34,9 @@ var weather_time = setInterval(function() {
 
 }, 1000);
 
-var update = setInterval(function() {
+function update() {
     var date = new Date();
     var hours = date.getHours();
-    var months = monthNames[date.getMonth()];
 
     var cloudcover = json_cloudy.hourly.cloudcover[hours];
     var precipitation = json_precipitation.hourly.precipitation[hours];
@@ -43,111 +44,140 @@ var update = setInterval(function() {
     var img_day  = ['cloudy.png', 'cloud.png', 'sun.png', 'rainy.png', 'rain.png', 'snowfall.png', 'lowsnowfall.png'];
 
     var img_night = ['night_cloudy.png', 'night_cloud.png', 'night.png', 'night_rainy.png', 'rain.png', 'night_snowfall.png', 'night_lowsnowfall.png'];
-
-    for (var i = 0; i <= 0; i++) {
-        if (months == "Апрель" || "Май" || "Июнь" || "Июль" || "Август" || "Сентябрь") {
-            //летние дни
-            if (hours >= 6 || hours <= 20) {
-
-                //0 осадков 
-                if (cloudcover <= 25 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/' + img_day[2];
-                }
-                if (cloudcover > 25 <= 65 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/' + img_day[2];
-                }
-                if (cloudcover > 65 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/' + img_day[2];
-                }
-                
-                //осадки с облачностью
-                if (cloudcover <= 25 && precipitation == 0.1) {
-                    document.getElementById('img').src = '../images/' + img_day[3];
-                }
-                if (cloudcover > 25 <= 65 && precipitation == 0.2) {
-                    document.getElementById('img').src = '../images/' + img_day[3];
-                }
-                if (cloudcover > 65 && precipitation >= 0.3) {
-                    document.getElementById('img').src = '../images/' + img_day[4];
-                } 
-            }
-            //летние ночи
-            if (hours < 6 || hours > 20) {
-
-                //0 осадков 
-                if (cloudcover <= 25 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[2];
-                }
-                if (cloudcover > 25 <= 65 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[0];
-                }
-                if (cloudcover > 65 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[1];
-                }
-
-                //осадки с облачностью
-                if (cloudcover <= 25 && precipitation == 0.1) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[3];
-                }
-                if (cloudcover > 25 <= 65 && precipitation == 0.2) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[3];
-                }
-                if (cloudcover > 65 && precipitation >= 0.3) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[4];
-                } 
-            }
+    
+    if (hours >= 6 || hours <= 20) {
+        //0 осадков 
+        if (cloudcover <= 25 && precipitation == 0) {
+            document.getElementById('img').src = '../images/' + img_day[2];
         }
-        if (months == "Январь" || "Февраль" || "Март" || "Октябрь" || "Ноябрь" || "Декабрь") {
-            //зимние дни
-            if (hours >= 6 || hours <= 20) {
-
-                //0 осадков 
-                if (cloudcover <= 25 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/' + img_day[2];
-                }
-                if (cloudcover > 25 <= 65 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/' + img_day[2];
-                }
-                if (cloudcover > 65 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/' + img_day[2];
-                }
-                
-                //осадки с облачностью
-                if (cloudcover <= 25 && precipitation == 0.1) {
-                    document.getElementById('img').src = '../images/' + img_day[6];
-                }
-                if (cloudcover > 25 <= 65 && precipitation == 0.2) {
-                    document.getElementById('img').src = '../images/' + img_day[6];
-                }
-                if (cloudcover > 65 && precipitation >= 0.3) {
-                    document.getElementById('img').src = '../images/' + img_day[5];
-                } 
-            }
-            //зимние ночи
-            if (hours < 6 || hours > 20) {
-
-                //0 осадков 
-                if (cloudcover <= 25 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[2];
-                }
-                if (cloudcover > 25 <= 65 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[0];
-                }
-                if (cloudcover > 65 && precipitation == 0) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[1];
-                }
-
-                //осадки с облачностью
-                if (cloudcover <= 25 && precipitation == 0.1) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[6];
-                }
-                if (cloudcover > 25 <= 65 && precipitation == 0.2) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[6];
-                }
-                if (cloudcover > 65 && precipitation >= 0.3) {
-                    document.getElementById('img').src = '../images/night_icons/' + img_night[5];
-                } 
-            }
+        if (cloudcover > 25 <= 65 && precipitation == 0) {
+            document.getElementById('img').src = '../images/' + img_day[2];
         }
+        if (cloudcover > 65 && precipitation == 0) {
+            document.getElementById('img').src = '../images/' + img_day[2];
+        }
+        
+        //слабые осадки с облачностью
+        if (cloudcover <= 25 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/' + img_day[3];
+        }
+        if (cloudcover > 25 <= 65 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/' + img_day[3];
+        }
+        if (cloudcover > 65 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/' + img_day[3];
+        }
+        //сильные осадки
+        if (cloudcover > 50 && precipitation >= 0.2) {
+            document.getElementById('img').src = '../images/' + img_day[4];
+        }  
     }
-}, 100);
+    if (hours < 6 || hours > 20) {
+
+        //0 осадков 
+        if (cloudcover <= 25 && precipitation == 0) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[2];
+        }
+        if (cloudcover > 25 <= 65 && precipitation == 0) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[0];
+        }
+        if (cloudcover > 65 && precipitation == 0) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[1];
+        }
+
+        //слабые осадки с облачностью
+        if (cloudcover <= 25 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[3];
+        }
+        if (cloudcover > 25 <= 65 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[3];
+        }
+        if (cloudcover > 65 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[3];
+        }
+        //сильные осадки
+        if (cloudcover > 50 && precipitation >= 0.2) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[4];
+        }  
+    } 
+    else {
+        document.getElementById("img").innerHTML = ("404");
+    }
+};
+
+function uptade_winter() {
+    var date = new Date();
+    var hours = date.getHours();
+    
+
+    var cloudcover = json_cloudy.hourly.cloudcover[hours];
+    var precipitation = json_precipitation.hourly.precipitation[hours];
+
+    var img_day  = ['cloudy.png', 'cloud.png', 'sun.png', 'rainy.png', 'rain.png', 'snowfall.png', 'lowsnowfall.png'];
+
+    var img_night = ['night_cloudy.png', 'night_cloud.png', 'night.png', 'night_rainy.png', 'rain.png', 'night_snowfall.png', 'night_lowsnowfall.png'];
+    
+    if (hours >= 6 || hours <= 20) { 
+        //0 осадков 
+        if (cloudcover <= 25 && precipitation == 0) {
+            document.getElementById('img').src = '../images/' + img_day[2];
+        }
+        if (cloudcover > 25 <= 65 && precipitation == 0) {
+            document.getElementById('img').src = '../images/' + img_day[2];
+        }
+        if (cloudcover > 65 && precipitation == 0) {
+            document.getElementById('img').src = '../images/' + img_day[2];
+        }
+        
+        //осадки с облачностью
+        if (cloudcover <= 25 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/' + img_day[6];
+        }
+        if (cloudcover > 25 <= 65 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/' + img_day[6];
+        }
+        if (cloudcover > 65 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/' + img_day[6];
+        }
+        //сильные осадки
+        if (cloudcover > 50 && precipitation >= 0.2) {
+            document.getElementById('img').src = '../images/' + img_day[5];
+        } 
+    }
+    if (hours < 6 || hours > 20) {
+        //0 осадков 
+        if (cloudcover <= 25 && precipitation == 0) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[2];
+        }
+        if (cloudcover > 25 <= 65 && precipitation == 0) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[0];
+        }
+        if (cloudcover > 65 && precipitation == 0) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[1];
+        }
+        //осадки с облачностью
+        if (cloudcover <= 25 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[6];
+        }
+        if (cloudcover > 25 <= 65 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[6];
+        }
+        if (cloudcover > 65 && precipitation == 0.1) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[6];
+        }
+        //сильные осадки
+        if (cloudcover > 50 && precipitation >= 0.2) {
+            document.getElementById('img').src = '../images/' + img_day[5];
+        } 
+    }
+    else {
+        document.getElementById("img").innerHTML = ("404");
+    }
+};
+
+
+if (months === "Апрель" || "Май" || "Июнь" || "Июль" || "Август" || "Сентябрь") {
+    setInterval(update(), 1000);
+} else {
+    setInterval(uptade_winter(), 1000);
+}
