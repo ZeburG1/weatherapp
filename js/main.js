@@ -44,7 +44,8 @@ function update() {
     var img_day  = ['cloudy.png', 'cloud.png', 'sun.png', 'rainy.png', 'rain.png', 'snowfall.png', 'lowsnowfall.png'];
 
     var img_night = ['night_cloudy.png', 'night_cloud.png', 'night.png', 'night_rainy.png', 'rain.png', 'night_snowfall.png', 'night_lowsnowfall.png'];
-    
+
+    //день
     if (hours >= 6 || hours <= 20) {
         //0 осадков 
         if (cloudcover <= 25 && precipitation == 0) {
@@ -72,6 +73,7 @@ function update() {
             document.getElementById('img').src = '../images/' + img_day[4];
         }  
     }
+    //ночь
     if (hours < 6 || hours > 20) {
 
         //0 осадков 
@@ -97,7 +99,7 @@ function update() {
         }
         //сильные осадки
         if (cloudcover > 50 && precipitation >= 0.2) {
-            document.getElementById('img').src = '../images/night_icons/' + img_night[4];
+            document.getElementById('img').src = '../images/' + img_night[4];
         }  
     } 
     else {
@@ -109,7 +111,6 @@ function uptade_winter() {
     var date = new Date();
     var hours = date.getHours();
     
-
     var cloudcover = json_cloudy.hourly.cloudcover[hours];
     var precipitation = json_precipitation.hourly.precipitation[hours];
 
@@ -167,7 +168,7 @@ function uptade_winter() {
         }
         //сильные осадки
         if (cloudcover > 50 && precipitation >= 0.2) {
-            document.getElementById('img').src = '../images/' + img_day[5];
+            document.getElementById('img').src = '../images/night_icons/' + img_day[5];
         } 
     }
     else {
