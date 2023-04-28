@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Погода</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" href="/images/weather-app.png">
+    <link rel="yandex-tableau-widget" href="/images/weather-app.png">
+</head>
+<body>
+<div id="center">
+    <div id="main-elem">
+        <div id="Weather">
+            <h1>Температура в Перми</h1>
+            <div id="time"></div>
+            <div id="images"><img id="img"></div>
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;"><h3 class="temp">Температура:&nbsp;<h3 id="temp"></h3></h3></div>
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;"><h3 class="clouds">Облачность:&nbsp;<h3 id="clouds"></h3></h3></div>
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;"><h3 class="precipitation">Осадки:&nbsp;<h3 id="precipitation"></h3></h3></div>
+        </div>
+        <!-- for yandex tableau widget "cringe"  -->
+        <img style="width: 0; height: 0;" src="/images/weather-app.png">
+    </div>
+</div>
+
+
+
+<script src="/js/main.js"></script>
+</body>
+</html>
