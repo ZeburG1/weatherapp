@@ -77,6 +77,9 @@ function update() {
     if (hours < 6 || hours > 20) {
 
         //0 осадков 
+        if (cloudcover == 0 && precipitation == 0) {
+            document.getElementById('img').src = '../images/night_icons/' + img_night[2];
+        }
         if (cloudcover <= 25 && precipitation == 0) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[2];
         }
