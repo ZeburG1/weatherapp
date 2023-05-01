@@ -51,7 +51,7 @@ function update() {
         if (cloudcover <= 25 && precipitation == 0) {
             document.getElementById('img').src = '../images/' + img_day[2];
         }
-        if (cloudcover > 25 <= 65 && precipitation == 0) {
+        if (cloudcover < 65 && precipitation == 0) {
             document.getElementById('img').src = '../images/' + img_day[0];
         }
         if (cloudcover > 65 && precipitation == 0) {
@@ -62,7 +62,7 @@ function update() {
         if (cloudcover <= 25 && precipitation == 0.1) {
             document.getElementById('img').src = '../images/' + img_day[3];
         }
-        if (cloudcover > 25 <= 65 && precipitation == 0.1) {
+        if (cloudcover < 65 && precipitation == 0.1) {
             document.getElementById('img').src = '../images/' + img_day[3];
         }
         if (cloudcover > 65 && precipitation == 0.1) {
@@ -80,7 +80,7 @@ function update() {
         if (cloudcover == 0 <= 24 && precipitation == 0) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[2];
         }
-        if (cloudcover >= 25 < 65 && precipitation == 0) {
+        if (cloudcover < 65 && precipitation == 0) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[0];
         }
         if (cloudcover > 65 && precipitation == 0) {
@@ -91,7 +91,7 @@ function update() {
         if (cloudcover <= 25 && precipitation == 0.1) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[3];
         }
-        if (cloudcover > 25 <= 65 && precipitation == 0.1) {
+        if (cloudcover < 65 && precipitation == 0.1) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[3];
         }
         if (cloudcover > 65 && precipitation == 0.1) {
@@ -123,7 +123,7 @@ function uptade_winter() {
         if (cloudcover <= 25 && precipitation == 0) {
             document.getElementById('img').src = '../images/' + img_day[2];
         }
-        if (cloudcover > 25 <= 65 && precipitation == 0) {
+        if (cloudcover < 65 && precipitation == 0) {
             document.getElementById('img').src = '../images/' + img_day[2];
         }
         if (cloudcover > 65 && precipitation == 0) {
@@ -134,7 +134,7 @@ function uptade_winter() {
         if (cloudcover <= 25 && precipitation == 0.1) {
             document.getElementById('img').src = '../images/' + img_day[6];
         }
-        if (cloudcover > 25 <= 65 && precipitation == 0.1) {
+        if (cloudcover < 65 && precipitation == 0.1) {
             document.getElementById('img').src = '../images/' + img_day[6];
         }
         if (cloudcover > 65 && precipitation == 0.1) {
@@ -150,7 +150,7 @@ function uptade_winter() {
         if (cloudcover <= 25 && precipitation == 0) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[2];
         }
-        if (cloudcover > 25 <= 65 && precipitation == 0) {
+        if (cloudcover < 65 && precipitation == 0) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[0];
         }
         if (cloudcover > 65 && precipitation == 0) {
@@ -160,7 +160,7 @@ function uptade_winter() {
         if (cloudcover <= 25 && precipitation == 0.1) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[6];
         }
-        if (cloudcover > 25 <= 65 && precipitation == 0.1) {
+        if (cloudcover < 65 && precipitation == 0.1) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[6];
         }
         if (cloudcover > 65 && precipitation == 0.1) {
