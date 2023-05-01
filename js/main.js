@@ -52,10 +52,10 @@ function update() {
             document.getElementById('img').src = '../images/' + img_day[2];
         }
         if (cloudcover > 25 <= 65 && precipitation == 0) {
-            document.getElementById('img').src = '../images/' + img_day[2];
+            document.getElementById('img').src = '../images/' + img_day[0];
         }
         if (cloudcover > 65 && precipitation == 0) {
-            document.getElementById('img').src = '../images/' + img_day[2];
+            document.getElementById('img').src = '../images/' + img_day[1];
         }
         
         //слабые осадки с облачностью
@@ -81,9 +81,6 @@ function update() {
             document.getElementById('img').src = '../images/night_icons/' + img_night[2];
         }
         if (cloudcover >= 25 < 65 && precipitation == 0) {
-            document.getElementById('img').src = '../images/night_icons/' + img_night[2];
-        }
-        if (cloudcover >= 25 >= 65 && precipitation == 0) {
             document.getElementById('img').src = '../images/night_icons/' + img_night[0];
         }
         if (cloudcover > 65 && precipitation == 0) {
